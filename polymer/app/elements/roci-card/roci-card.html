@@ -1,0 +1,66 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="roci-card">
+  <template>
+    <style include="shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+        vertical-align:middle;
+        padding-left:20px;
+      }
+      
+      
+    </style>
+    <h4><span>{{cabecera}}</span></h4>
+   
+    
+    <div>
+        <img src="../../images/twitter.png"/><span>{{twitter}}</span></div>
+    <div><img src="../../images/linkedin.png"/>{{linkedin}}</div>
+    <div><img src="../../images/gmail.png" /> {{email}}</div>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+      
+      Polymer({
+        is: 'roci-card',
+
+        properties: {
+          cabecera: {
+            type: String,
+            value: 'Datos Personales Rocio Muñoz',
+            notify: true
+          },
+          twitter: {
+            type: String,
+            value: '@roci_munoz',
+            notify: true
+          },
+          linkedin: {
+            type: String,
+            value: 'https://es.linkedin.com/in/rociomp',
+            notify: true
+          },
+          email: {
+            type: String,
+            value: 'rocimunoz@gmail.com',
+            notify: true
+          }
+        }
+      });
+    })();
+  </script>
+
+</dom-module>
