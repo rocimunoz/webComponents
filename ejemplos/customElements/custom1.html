@@ -1,0 +1,58 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Ejemplo Custom Element</title>
+ </head>
+
+ <body>
+
+ 	<roci-card></roci-card>
+
+ 	<template id="datosContactoTemplate">
+ 		<style>
+ 		.estiloBorde {
+ 			border: 2px solid black;
+ 			border-radius: 1em;
+ 			font-size: 12pt;
+ 			text-align: center;
+ 			font-family: sans-serif;
+ 			font-weight: bold;
+ 			width:300px;
+ 		}
+ 		.name {
+ 			font-size: 12pt;
+ 			font-weight: normal;
+ 			margin-top: 0.8em;
+ 			padding-top: 0.2em;
+ 		}
+ 	}
+
+ 	</style>
+ 	<div class="estiloBorde">
+ 		<div id="nombre">Rocio</div>
+ 		<div id="twitter">@roci_munoz</div>
+ 		<div id="email">rocimunoz@gmail.com</div>
+ 	</div>
+ </template>
+
+ <script>
+ //document.querySelector('roci-card').textContent = 'Rocio'; 
+ 
+ var constructorRociCard = Object.create(HTMLElement.prototype, {
+ 	createdCallback: {
+ 		value: function() {
+ 			var t = document.querySelector('#datosContactoTemplate');
+ 			var clone = document.importNode(t.content, true);
+ 			this.createShadowRoot().appendChild(clone);
+ 		}
+ 	}
+ });
+
+
+
+ document.registerElement('roci-card', {prototype: constructorRociCard});
+ </script>
+
+</body>
+
+</html> 

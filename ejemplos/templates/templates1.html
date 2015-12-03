@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Ejemplo template</title>
+ </head>
+
+ <body>
+
+ 	<div id="datosContacto">
+ 		
+ 	</div>
+ 
+ 	<template id="datosContactoTemplate">
+ 		<style>
+ 		.estiloBorde {
+ 			border: 2px solid red;
+ 			border-radius: 1em;
+ 			font-size: 20pt;
+ 			text-align: center;
+ 			font-family: sans-serif;
+ 			font-weight: bold;
+ 		}
+ 		.name {
+ 			font-size: 18pt;
+ 			font-weight: normal;
+ 			margin-top: 0.8em;
+ 			padding-top: 0.2em;
+ 		}
+ 	}
+
+ 	</style>
+ 	<div class="estiloBorde">
+ 		<div>Nombre: <span class="name"><content></content></span></div>
+ 	</div>
+ </template>
+
+ <script>
+
+ document.querySelector('#datosContacto').textContent = 'Rocio';
+ 
+ /*   Se crea un shadow dom */
+ var shadow = document.querySelector('#datosContacto').createShadowRoot();
+ 
+/*  Recibo la plantilla */
+ var template = document.querySelector('#datosContactoTemplate');
+ 
+/*  Aplico la plantilla */
+ var clone = document.importNode(template.content, true);
+ shadow.appendChild(clone);
+
+ </script>
+
+
+</body>
+
+</html> 

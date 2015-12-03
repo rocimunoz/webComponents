@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Title of the document</title>
+ </head>
+
+ <body>
+
+<!-- Estilo del documento -->
+	<style>
+		h3{ color: green; }
+	</style>
+
+
+ 	<div>
+ 		<h3>Light DOM</h3>
+ 	</div>
+ 	<h3>Light DOM fuera del div</h3>
+
+
+ 	<script>
+ 	/*Creo el ShadowRoot */
+ 	var root = document.querySelector('div').createShadowRoot();
+ 	/*Añadimos elementos y estilo al ShadowRoot*/
+ 	root.innerHTML = '<style>h3{ color: red; }</style>' + 
+ 	'<h3>Shadow DOM</h3>';
+ 	</script>
+
+ </body>
+ </html>
