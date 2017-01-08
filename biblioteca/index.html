@@ -2,33 +2,43 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ejemplo biblioteca con componentes</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejemplo biblioteca con componentes</title>
 
-  <!--<link rel="stylesheet" href="styles/main.css">-->
+    <!--<link rel="stylesheet" href="styles/main.css">-->
 
-  <!--<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>-->
+    <!--<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>-->
 
-  <!-- will be replaced with elements/elements.vulcanized.html -->
-  <link rel="import" href="./components/roci-busqueda.html">
-  <link rel="import" href="components/roci-lista.html">
-  <link rel="import" href="components/roci-libro.html"><!--
+    <!-- will be replaced with elements/elements.vulcanized.html -->
+    <link rel="import" href="./components/roci-busqueda.html">
+    <link rel="import" href="components/roci-lista.html">
+    <link rel="import" href="components/roci-libro.html">
+    <!--
   <link rel="import" href="components/roci-reserva.html">-->
 
-  <!-- endreplace-->
+    <!-- endreplace-->
 
-  <!-- For shared styles, shared-styles.html import in elements.html -->
-  <style is="custom-style" include="shared-styles"></style>
+    <!-- For shared styles, shared-styles.html import in elements.html -->
+    <style is="custom-style" include="shared-styles"></style>
 
 </head>
 
 <body>
 
-<roci-busqueda></roci-busqueda>
-<!--<roci-libro data-isbn="1234" data-titulo="Caperucita roja2" data-autor="Pepe" ></roci-libro>-->
-<roci-lista data-origin="utils/libros.json"></roci-libro>
+    <template id="templateLibro">
+        <div>
+            <div>ISBN: <span id="isbn"></span></div>
+            <div>Titulo: <span id="titulo"></span></div>
+            <div>Autor: <span id="autor"></span></div>
+            <hr>
+        </div>
+    </template>
+
+        <roci-busqueda></roci-busqueda>
+
+        <roci-lista data-origin="utils/libros.json"></roci-libro>
 </body>
 
 </html>
