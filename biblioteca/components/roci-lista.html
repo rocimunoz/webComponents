@@ -1,0 +1,55 @@
+<html>
+
+<body>
+
+    <script>
+        function loadJSON(file, callback) {
+
+            var xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+            xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
+            xobj.onreadystatechange = function() {
+                if (xobj.readyState == 4 && xobj.status == "200") {
+                    // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+                    callback(xobj.responseText);
+                }
+            };
+            xobj.send(null);
+        }
+        var importDoc = document.currentScript.ownerDocument;
+
+        // Create a new object based of the HTMLElement prototype
+        var rociListaPrototype = Object.create(HTMLElement.prototype);
+
+        // Set up the element.
+        rociListaPrototype.createdCallback = function() {
+            var root = this.createShadowRoot();
+
+            var urlJson = this.getAttribute('data-origin');
+            var arrayLibros = "";
+            loadJSON(urlJson, function(response) {
+                arrayLibros = JSON.parse(response);
+
+                for (var i in arrayLibros.books) {
+                    var rocilibro = document.createElement('roci-libro');
+                    rocilibro.setAttribute("data-isbn", arrayLibros.books[i].isbn);
+                    var clone = document.importNode(rocilibro, true);
+
+                    root.appendChild(clone);
+                }
+            });
+
+
+
+
+
+        };
+
+        // Register the new element.
+        var rociLista = document.registerElement('roci-lista', {
+            prototype: rociListaPrototype
+        });
+    </script>
+</body>
+
+</html>

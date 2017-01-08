@@ -1,47 +1,47 @@
- <!-- ???? -->
+<!-- ???? -->
 
- <!DOCTYPE html>
- <html>
- <head>
- 	<title>Title of the document</title>
- 	
- 	<style>
+<!DOCTYPE html>
+<html>
 
-	
+<head>
+    <title>Title of the document</title>
 
- 	</style>
- </head>
+    <style>
 
- <body>
+    </style>
+</head>
 
-<div>
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-</div>
+<body>
+    <div>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
+        ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit
+        augue duis dolore te feugait nulla facilisi.
+    </div>
+    <p id="shadowDOM">
 
-<p id="shadowDOM">
-	
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
+        ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit
+        augue duis dolore te feugait nulla facilisi.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
+        ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit
+        augue duis dolore te feugait nulla facilisi.
+    </p>
 
-</p>
+    <script>
+        var parrafo = document.querySelector('#shadowDOM');
+        var root = parrafo.createShadowRoot();
 
-<p>
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+        /* :host nos permite seleccionar todos los nodos de un shadow DOM
+        	Solo funciona en un shadowDOM
+        	Los estilos de la pagina global tienen mas peso que :host y seran sobreescritos
+        */
 
-</p>
-
-
-<script>
-var parrafo = document.querySelector('#shadowDOM');
-var root = parrafo.createShadowRoot();
-
-/* :host nos permite seleccionar todos los nodos de un shadow DOM
-	Solo funciona en un shadowDOM
-	Los estilos de la pagina global tienen mas peso que :host y seran sobreescritos
-*/
-
-root.innerHTML = '<style>' + 
-    ':host(p) { text-transform: uppercase; }' + '</style>' + 
-    '<content></content>';
-</script>
+        root.innerHTML = '<style>' +
+            ':host(p) { text-transform: uppercase; }' + '</style>' +
+            '<content></content>';
+    </script>
 </body>
+
 </html>

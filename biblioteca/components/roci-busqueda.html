@@ -1,0 +1,40 @@
+<html>
+<body>
+
+<script>
+// Create a new object based of the HTMLElement prototype
+var rociBusquedaPrototype = Object.create(HTMLElement.prototype);
+
+// Set up the element.
+rociBusquedaPrototype.createdCallback = function() {
+  // Create a Shadow Root
+  var shadow = this.createShadowRoot();
+
+
+  var input = document.createElement('input');
+  input.type = "text";
+
+  // Add the image to the Shadow Root.
+  shadow.appendChild(input);
+
+
+
+  // Create a link to the product.
+  var button = document.createElement("input");
+  button.type = "button";
+  button.value = "Buscar";
+  //button.onclick = func;
+
+  // Add the link to the Shadow Root.
+ shadow.appendChild(button);
+};
+
+// Register the new element.
+var rociBusqueda = document.registerElement('roci-busqueda', {
+prototype: rociBusquedaPrototype
+});
+
+
+</script>
+</body>
+</html>

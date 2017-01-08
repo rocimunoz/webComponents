@@ -1,35 +1,33 @@
- <!-- ???? -->
+<!-- ???? -->
 
- <!DOCTYPE html>
- <html>
- <head>
- 	<title>Title of the document</title>
- 	
+<!DOCTYPE html>
+<html>
 
- 	<style>
+<head>
+    <title>Title of the document</title>
 
-	button{
-		text-transform: lowercase;
-	}
+    <style>
+        button {
+            text-transform: lowercase;
+        }
+    </style>
+</head>
 
- 	</style>
- </head>
+<body>
+    <button class="red">MY Button</button>
+    <script>
+        var button = document.querySelector('button');
+        var root = button.createShadowRoot();
 
- <body>
-<button class="red">MY Button</button>
+        /* :host nos permite seleccionar todos los nodos de un shadow DOM
+        	Solo funciona en un shadowDOM
+        	Los estilos de la pagina global tienen mas peso que :host y seran sobreescritos
+        */
 
-<script>
-var button = document.querySelector('button');
-var root = button.createShadowRoot();
-
-/* :host nos permite seleccionar todos los nodos de un shadow DOM
-	Solo funciona en un shadowDOM
-	Los estilos de la pagina global tienen mas peso que :host y seran sobreescritos
-*/
-
-root.innerHTML = '<style>' + 
-    ':host { text-transform: uppercase; }' + '</style>' + 
-    '<content></content>';
-</script>
+        root.innerHTML = '<style>' +
+            ':host { text-transform: uppercase; }' + '</style>' +
+            '<content></content>';
+    </script>
 </body>
+
 </html>

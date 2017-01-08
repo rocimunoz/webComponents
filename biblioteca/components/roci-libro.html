@@ -1,0 +1,36 @@
+<html>
+
+<body>
+    <template>
+   <article>
+   <p>ISBN  : <span id="isbn"></span></p>
+   <p>Titulo: <span id="titulo"></span></p>
+   <p>Autor:<span id="autor"></span></p>
+   <hr>
+   </article>
+  </template>
+    <script>
+        // Create a new object based of the HTMLElement prototype
+        var rociLibroPrototype = Object.create(HTMLElement.prototype);
+
+        // Set up the element.
+        rociLibroPrototype.createdCallback = function() {
+            var root = this.createShadowRoot();
+
+            var template = document.querySelector('#isbn');
+            if (template != null) {
+                var clone = document.importNode(template, true);
+                root.appendChild(clone);
+            }
+
+
+        };
+
+        // Register the new element.
+        var rociLibro = document.registerElement('roci-libro', {
+            prototype: rociLibroPrototype
+        });
+    </script>
+</body>
+
+</html>

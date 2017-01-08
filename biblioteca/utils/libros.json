@@ -1,0 +1,20 @@
+{
+   "books": [
+      {
+         "isbn": "X999_Y999",
+         "titulo": "caperucita roja",
+         "autor": "Pepe"
+      },
+      {
+         "isbn": "X999_Y999",
+         "titulo": "Hansel y Gretel",
+         "autor": "Pepe"
+      },
+      {
+         "isbn": "X999_Y999",
+         "titulo": "Los tres cerditos",
+         "autor": "Pepe"
+      }
+
+   ]
+}
