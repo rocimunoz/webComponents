@@ -33,6 +33,8 @@
                 for (var i in arrayLibros.books) {
                     var rocilibro = document.createElement('roci-libro');
                     rocilibro.setAttribute("data-isbn", arrayLibros.books[i].isbn);
+                    rocilibro.setAttribute("data-titulo", arrayLibros.books[i].titulo);
+                    rocilibro.setAttribute("data-autor", arrayLibros.books[i].autor);
                     var clone = document.importNode(rocilibro, true);
 
                     root.appendChild(clone);

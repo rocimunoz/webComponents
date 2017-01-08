@@ -23,6 +23,10 @@
             var template = mainDoc.querySelector('#templateLibro');
             var nodeIsbn = template.content.querySelector("#isbn");
             nodeIsbn.textContent =  this.getAttribute("data-isbn");
+            var nodeTitulo = template.content.querySelector("#titulo");
+            nodeTitulo.textContent =  this.getAttribute("data-titulo");
+            var nodeAutor = template.content.querySelector("#autor");
+            nodeAutor.textContent =  this.getAttribute("data-autor");
 
                 var clone = document.importNode(template.content, true);
                 root.appendChild(clone);
