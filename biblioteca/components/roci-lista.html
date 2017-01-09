@@ -1,7 +1,12 @@
 <html>
 
 <body>
-
+  <template id="templateLista">
+      <article>
+          <roci-libro data-isbn="" data-titulo="" data-autor=""></roci-libro>
+      </article>
+      <hr>
+  </template>
     <script>
         function loadJSON(file, callback) {
 
@@ -16,7 +21,7 @@
             };
             xobj.send(null);
         }
-        var importDoc = document.currentScript.ownerDocument;
+        var componentDoc = document.currentScript.ownerDocument;
 
         // Create a new object based of the HTMLElement prototype
         var rociListaPrototype = Object.create(HTMLElement.prototype);
@@ -31,11 +36,14 @@
                 arrayLibros = JSON.parse(response);
 
                 for (var i in arrayLibros.books) {
-                    var rocilibro = document.createElement('roci-libro');
-                    rocilibro.setAttribute("data-isbn", arrayLibros.books[i].isbn);
-                    rocilibro.setAttribute("data-titulo", arrayLibros.books[i].titulo);
-                    rocilibro.setAttribute("data-autor", arrayLibros.books[i].autor);
-                    var clone = document.importNode(rocilibro, true);
+
+                  var template = componentDoc.querySelector('#templateLista');
+                  var rociLibro = template.content.querySelector("roci-libro");
+
+                    rociLibro.setAttribute("data-isbn", arrayLibros.books[i].isbn);
+                    rociLibro.setAttribute("data-titulo", arrayLibros.books[i].titulo);
+                    rociLibro.setAttribute("data-autor", arrayLibros.books[i].autor);
+                    var clone = document.importNode(rociLibro, true);
 
                     root.appendChild(clone);
                 }
