@@ -16,7 +16,7 @@
       <input type="text" placeholder="Autor del libro" required="" id="autor" />
     </div>
     <div>
-      <input type="button" value="Buscar" />
+      <input id="btnSearch" type="button" value="Buscar" />
     </div>
   </p>
   </template>
@@ -25,21 +25,38 @@
       <script>
       var mainDoc = document.currentScript.ownerDocument;
       var template = mainDoc.querySelector('template');
+
+
+
           // Create a new object based of the HTMLElement prototype
           var rociBusquedaPrototype = Object.create(HTMLElement.prototype);
 
           // Set up the element.
           rociBusquedaPrototype.createdCallback = function() {
+
+
               var root = this.createShadowRoot();
+              var clone = document.importNode(template.content, true);
+              root.appendChild(clone);
 
+              this.addEventListener('click', function(e) {
+                console.log("has pinchado");
+              });
 
-
-                  var clone = document.importNode(template.content, true);
-                  root.appendChild(clone);
 
 
 
           };
+
+          rociBusquedaPrototype.attachedCallback = function() {
+            var btn = template.content.querySelector("#btnSearch");
+            btn.addEventListener('click', function(e) {
+              console.log("has pinchado");
+            });
+            console.log("attached");
+          };
+
+
 
           // Register the new element.
           var rociBusqueda = document.registerElement('roci-busqueda', {
