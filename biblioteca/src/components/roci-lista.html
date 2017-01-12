@@ -9,19 +9,7 @@
       <hr>
   </template>
     <script>
-        function loadJSON(file, callback) {
 
-            var xobj = new XMLHttpRequest();
-            xobj.overrideMimeType("application/json");
-            xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
-            xobj.onreadystatechange = function() {
-                if (xobj.readyState == 4 && xobj.status == "200") {
-                    // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-                    callback(xobj.responseText);
-                }
-            };
-            xobj.send(null);
-        }
         var componentDoc = document.currentScript.ownerDocument;
 
         // Create a new object based of the HTMLElement prototype
@@ -31,29 +19,24 @@
         rociListaPrototype.createdCallback = function() {
             var root = this.createShadowRoot();
 
-            var urlJson = this.getAttribute('data-origin');
-            var arrayLibros = "";
-            loadJSON(urlJson, function(response) {
-                arrayLibros = JSON.parse(response);
+            document.addEventListener("getLibros", function(e){
 
-                for (var i in arrayLibros.books) {
+              console.log("recibo array de libros");
+              var arrayLibros = e.detail.arrayLibros;
 
-                    var template = componentDoc.querySelector('#templateLista');
-                    var rociLibro = template.content.querySelector("roci-libro");
+              for (var i in arrayLibros) {
 
-                    rociLibro.setAttribute("data-isbn", arrayLibros.books[i].isbn);
-                    rociLibro.setAttribute("data-titulo", arrayLibros.books[i].titulo);
-                    rociLibro.setAttribute("data-autor", arrayLibros.books[i].autor);
-                    var clone = document.importNode(rociLibro, true);
+                  var template = componentDoc.querySelector('#templateLista');
+                  var rociLibro = template.content.querySelector("roci-libro");
 
-                    root.appendChild(clone);
-                }
+                  rociLibro.setAttribute("data-isbn", arrayLibros[i].isbn);
+                  rociLibro.setAttribute("data-titulo", arrayLibros[i].titulo);
+                  rociLibro.setAttribute("data-autor", arrayLibros[i].autor);
+                  var clone = document.importNode(rociLibro, true);
 
+                  root.appendChild(clone);
+              }
 
-            });
-
-            document.addEventListener("getConsulta", function(){
-              console.log("hola mundo");
             });
         };
 
