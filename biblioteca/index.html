@@ -7,31 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ejemplo biblioteca con componentes</title>
 
-    <!--<link rel="stylesheet" href="styles/main.css">-->
-
     <script src="src/js/main.js"></script>
-    <!-- will be replaced with elements/elements.vulcanized.html -->
+    <script src="./bower_components/lodash/lodash.js"></script>
+
     <link rel="import" href="src/components/roci-busqueda.html">
     <link rel="import" href="src/components/roci-lista.html">
     <link rel="import" href="src/components/roci-libro.html">
-    <!--
-  <link rel="import" href="components/roci-reserva.html">-->
-
-    <!-- endreplace-->
-
-    <!-- For shared styles, shared-styles.html import in elements.html -->
-    <style is="custom-style" include="shared-styles"></style>
 
 </head>
 
 <body>
 
-
         <h1> Busqueda de libros</h1>
         <roci-busqueda data-origin="src/utils/libros.json"></roci-busqueda>
         <h1> Resultado de libros</h1>
         <roci-lista ></roci-libro>
-
 
 </body>
 

@@ -20,12 +20,12 @@
 
 
     <script>
+        //dom de mi componente
         var mainDoc = document.currentScript.ownerDocument;
+        //obtengo la plantilla del componente
         var template = mainDoc.querySelector('template');
 
-
-
-        // Create a new object based of the HTMLElement prototype
+        // Constructor del componente
         var rociBusquedaPrototype = Object.create(HTMLElement.prototype);
 
         function loadJSON(file, callback) {
@@ -42,26 +42,28 @@
             xobj.send(null);
         }
 
-        // Set up the element.
+        // Configuro el comportamiento del componente
         rociBusquedaPrototype.createdCallback = function() {
-            var root = this.createShadowRoot();
-            var clone = document.importNode(template.content, true);
-            var urlJson = this.getAttribute('data-origin');
             var arrayLibros = "";
+            //Creo el shadoRoot del componente
+            var root = this.createShadowRoot();
+            //Añado el template al shadowRoot
+            var clone = document.importNode(template.content, true);
             root.appendChild(clone);
 
+            //Acceso a propiedad data-origin del componente
+            var urlJson = this.getAttribute('data-origin');
 
-
+            //Listener sobre el boton del componente
             var boton = root.querySelector("button");
-
             boton.addEventListener('click', function(e) {
-
-
-
+              //Promesa para obtener los datos del json
               loadJSON(urlJson, function(response) {
+                  //Aplico filtro sobre el json
                   arrayLibros = JSON.parse(response);
+                  var filtro = _.filter(arrayLibros.books, { 'isbn': 'X999_Y998'});
                   var evento = new CustomEvent("getLibros", {
-                      detail: {arrayLibros: arrayLibros.books},
+                      detail: {arrayLibros: filtro},
                       bubbles: true,
                       cancelable: true
                   });
@@ -74,7 +76,7 @@
         };
 
 
-        // Register the new element.
+        // Registro el nuevo componente.
         var rociBusqueda = document.registerElement('roci-busqueda', {
             prototype: rociBusquedaPrototype
         });
