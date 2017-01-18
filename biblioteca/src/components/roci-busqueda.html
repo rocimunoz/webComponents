@@ -25,22 +25,24 @@
   }
     </style>
     <p>
+      <form>
     <div class="form-group">
-      <label for="isbn">ISBN: </label>
-      <input type="text" class="form-control" value="xxx" placeholder="ISBN" required="" id="isbn" />
+        <label for="isbn">ISBN: </label>
+        <input type="text" class="form-control" value="" placeholder="ISBN"  id="isbn" />
     </div>
     <div>
-      <label for="titulo">Titulo: </label>
-      <input type="text" value="yyy" placeholder="Titulo del libro" required="" id="titulo" />
+        <label for="titulo">Titulo: </label>
+        <input type="text" value="" placeholder="Titulo del libro"  id="titulo" />
     </div>
     <div>
-      <label for="autor">Autor: </label>
-      <input type="text" value="zzz" placeholder="Autor del libro" required="" id="autor" />
+        <label for="autor">Autor: </label>
+        <input type="text" value="" placeholder="Autor del libro"  id="autor" />
     </div>
     <div>
-      <button id="btnSearch" value="Buscar">Buscar</button>
+        <button id="btnSearch" type="submit" value="Buscar">Buscar</button>
     </div>
-  </p>
+  </form>
+</p>
   </template>
 
 
@@ -80,22 +82,28 @@
 
 
             //Listener sobre el boton del componente
-            var boton = root.querySelector("button");
-            boton.addEventListener('click', function(e) {
-
+            var formulario = root.querySelector("form");
+            formulario.addEventListener('submit', function(e) {
+              e.preventDefault();
                 //Promesa para obtener los datos del json
                 loadJSON(urlJson, function(response) {
                     //Aplico filtro sobre el json
                     arrayLibros = JSON.parse(response);
-                    var fIsbn = template.content.querySelector("#isbn").text;
-                    var fTitulo = template.content.querySelector("#titulo");
-                    var fAutor = template.content.querySelector("#autor");
-
-                    console.log("fIsbn:" + fIsbn);
                     var filterLibros = {};
-                    var resultFiltro = _.filter(arrayLibros.books, {
-                        'isbn': fIsbn
-                    });
+                    var fIsbn = root.querySelector("#isbn").value;
+                    if (fIsbn!=""){
+                      filterLibros.isbn = fIsbn;
+                    }
+                    var fTitulo = root.querySelector("#titulo").value;
+                    if (fTitulo!=""){
+                      filterLibros.titulo = fTitulo;
+                    }
+                    var fAutor = root.querySelector("#autor").value;
+                    if (fTitulo!=""){
+                      filterLibros.autor = fAutor;
+                    }
+
+                    var resultFiltro = _.filter(arrayLibros.books, filterLibros);
                     var evento = new CustomEvent("getLibros", {
                         detail: {
                             arrayLibros: resultFiltro
