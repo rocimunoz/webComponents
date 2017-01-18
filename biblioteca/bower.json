@@ -1,6 +1,6 @@
 {
   "name": "webcomponents",
-"description": "Ejemplo biblioteca hecha con webcomponents",
+  "description": "Ejemplo biblioteca hecha con webcomponents",
   "main": "main.js",
   "authors": [
     "rocimunoz"
@@ -19,5 +19,6 @@
     "tests"
   ],
   "devDependencies": {
+    "lodash": "^4.17.4"
   }
 }

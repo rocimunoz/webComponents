@@ -25,21 +25,23 @@
   }
     </style>
     <p>
+    <form>
     <div class="form-group">
       <label for="isbn">ISBN: </label>
-      <input type="text" class="form-control" value="xxx" placeholder="ISBN" required="" id="isbn" />
+      <input type="text" class="form-control" value="" placeholder="ISBN" required="" id="isbn" />
     </div>
     <div>
       <label for="titulo">Titulo: </label>
-      <input type="text" value="yyy" placeholder="Titulo del libro" required="" id="titulo" />
+      <input type="text" value="" placeholder="Titulo del libro" required="" id="titulo" />
     </div>
     <div>
       <label for="autor">Autor: </label>
-      <input type="text" value="zzz" placeholder="Autor del libro" required="" id="autor" />
+      <input type="text" value="" placeholder="Autor del libro" required="" id="autor" />
     </div>
     <div>
-      <button id="btnSearch" value="Buscar">Buscar</button>
+      <button type="submit" id="btnSearch" value="Buscar">Buscar</button>
     </div>
+  </form>
   </p>
   </template>
 
@@ -52,6 +54,7 @@
         // Constructor del componente
         var rociBusquedaPrototype = Object.create(HTMLElement.prototype);
 
+        var root = "";
         function loadJSON(file, callback) {
 
             var xobj = new XMLHttpRequest();
@@ -70,7 +73,7 @@
         rociBusquedaPrototype.createdCallback = function() {
             var arrayLibros = "";
             //Creo el shadoRoot del componente
-            var root = this.createShadowRoot();
+            root = this.createShadowRoot();
             //Añado el template al shadowRoot
             var clone = document.importNode(template.content, true);
             root.appendChild(clone);
@@ -80,22 +83,20 @@
 
 
             //Listener sobre el boton del componente
-            var boton = root.querySelector("button");
-            boton.addEventListener('click', function(e) {
-
+            var boton = root.querySelector("form");
+            boton.addEventListener('submit', function(e) {
+              e.preventDefault();
                 //Promesa para obtener los datos del json
                 loadJSON(urlJson, function(response) {
                     //Aplico filtro sobre el json
                     arrayLibros = JSON.parse(response);
-                    var fIsbn = template.content.querySelector("#isbn").text;
-                    var fTitulo = template.content.querySelector("#titulo");
-                    var fAutor = template.content.querySelector("#autor");
+                    var fIsbn = root.querySelector("#isbn").value;
+                    var fTitulo = root.querySelector("#titulo").value;
+                    var fAutor = root.querySelector("#autor").value;
 
                     console.log("fIsbn:" + fIsbn);
-                    var filterLibros = {};
-                    var resultFiltro = _.filter(arrayLibros.books, {
-                        'isbn': fIsbn
-                    });
+                    var filterLibros = "";
+                    var resultFiltro = _.filter(arrayLibros.books, {'isbn': fIsbn, 'titulo': fTitulo, 'autor':fAutor});
                     var evento = new CustomEvent("getLibros", {
                         detail: {
                             arrayLibros: resultFiltro
