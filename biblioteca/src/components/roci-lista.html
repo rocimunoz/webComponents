@@ -20,6 +20,7 @@
             var root = this.createShadowRoot();
 
             document.addEventListener("getLibros", function(e){
+              //Limpio libros
 
               console.log("recibo array de libros");
               var arrayLibros = e.detail.arrayLibros;
@@ -32,7 +33,7 @@
                   rociLibro.setAttribute("data-isbn", arrayLibros[i].isbn);
                   rociLibro.setAttribute("data-titulo", arrayLibros[i].titulo);
                   rociLibro.setAttribute("data-autor", arrayLibros[i].autor);
-                  var clone = document.importNode(rociLibro, true);
+                  var clone = componentDoc.importNode(rociLibro, true);
 
                   root.appendChild(clone);
               }

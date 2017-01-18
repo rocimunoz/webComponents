@@ -118,16 +118,7 @@
 
             });
         };
-
-
-        rociBusquedaPrototype.attributeChangedCallback = function(attrName, oldVal, newVal) {
-            console.log("attributeChangedCallback");
-        }
-
-        rociBusquedaPrototype.attachedCallback = function(attrName, oldVal, newVal) {
-            console.log("attachedCallback");
-        }
-
+        
         // Registro el nuevo componente.
         var rociBusqueda = document.registerElement('roci-busqueda', {
             prototype: rociBusquedaPrototype
