@@ -39,7 +39,28 @@
          "isbn": "00008",
          "titulo": "Todo bajo el cielo",
          "autor": "Matilde Asensi"
+      },
+      {
+         "isbn": "00009",
+         "titulo": "Lo que el viento se llevo",
+         "autor": "Margaret Mitchell"
+      },
+      {
+         "isbn": "00010",
+         "titulo": "El código Da Vinci",
+         "autor": "Dan Brown"
+      },
+      {
+         "isbn": "00011",
+         "titulo": "El alquimista",
+         "autor": "Paulo Coelho"
+      },
+      {
+         "isbn": "00012",
+         "titulo": "Crepúsculo",
+         "autor": "Stephenie Meyer"
       }
+
 
 
    ]
