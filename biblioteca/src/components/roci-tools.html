@@ -1,0 +1,34 @@
+<html>
+
+<body>
+  <template id="templateTools">
+    <div>sere una barra con acciones</div>
+  </template>
+
+
+    <script>
+    var mainDoc = document.currentScript.ownerDocument;
+
+        // Create a new object based of the HTMLElement prototype
+        var rociToolsPrototype = Object.create(HTMLElement.prototype);
+
+        // Set up the element.
+        rociToolsPrototype.createdCallback = function() {
+            var root = this.createShadowRoot();
+            var template = mainDoc.querySelector('#templateTools');
+
+            var clone = document.importNode(template.content, true);
+            root.appendChild(clone);
+
+
+
+        };
+
+        // Register the new element.
+        var rociTools = document.registerElement('roci-tools', {
+            prototype: rociToolsPrototype
+        });
+    </script>
+</body>
+
+</html>
