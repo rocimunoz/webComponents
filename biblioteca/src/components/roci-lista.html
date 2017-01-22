@@ -21,6 +21,12 @@
 
             document.addEventListener("getLibros", function(e){
               //Limpio libros
+              var listaLibros = root.querySelectorAll("roci-libro");
+              if (listaLibros!=null && listaLibros.length>0){
+                _.forEachRight(listaLibros, function(value) {
+                  root.removeChild(value);
+                });
+              }
 
               console.log("recibo array de libros");
               var arrayLibros = e.detail.arrayLibros;
