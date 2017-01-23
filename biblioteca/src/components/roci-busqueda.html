@@ -1,46 +1,29 @@
 <html>
-
 <body>
     <template id="templateBusqueda">
-    <style>
-    input[type="text"] {
-    background-color: #eaeaea;
-    border: 1px solid grey;
-    border-radius: 4px;
-    box-sizing: border-box;
-    color: inherit;
-    font: inherit;
-    padding: 10px 10px;
-    width: 20%;
-  }
-
-  input[type="submit"] {
-    font: 16px/1.6 Arial, sans-serif;
-    color: white;
-    background: cornflowerblue;
-    border: 1px solid #1f66e5;
-    border-radius: 4px;
-    padding: 10px 10px;
-    width: 100%;
-  }
+    <style type="text/css">
+    @import './bower_components/bootstrap/dist/css/bootstrap.min.css';
     </style>
     <p>
+      <form>
     <div class="form-group">
-      <label for="isbn">ISBN: </label>
-      <input type="text" class="form-control" value="xxx" placeholder="ISBN" required="" id="isbn" />
+        <label for="isbn">ISBN: </label>
+        <input type="text" class="form-control" value="" placeholder="ISBN"  id="isbn" />
     </div>
-    <div>
-      <label for="titulo">Titulo: </label>
-      <input type="text" value="yyy" placeholder="Titulo del libro" required="" id="titulo" />
+      <div class="form-group">
+        <label for="titulo">Titulo: </label>
+        <input type="text" value="" class="form-control" placeholder="Titulo del libro"  id="titulo" />
     </div>
-    <div>
-      <label for="autor">Autor: </label>
-      <input type="text" value="zzz" placeholder="Autor del libro" required="" id="autor" />
+      <div class="form-group">
+        <label for="autor">Autor: </label>
+        <input type="text" value="" class="form-control" placeholder="Autor del libro"  id="autor" />
     </div>
-    <div>
-      <button id="btnSearch" value="Buscar">Buscar</button>
+      <div class="form-group">
+        <button id="btnSearch" type="submit" class="btn btn-primary" value="Buscar">Buscar</button>
+
     </div>
-  </p>
+  </form>
+</p>
   </template>
 
 
@@ -80,22 +63,28 @@
 
 
             //Listener sobre el boton del componente
-            var boton = root.querySelector("button");
-            boton.addEventListener('click', function(e) {
-
+            var formulario = root.querySelector("form");
+            formulario.addEventListener('submit', function(e) {
+              e.preventDefault();
                 //Promesa para obtener los datos del json
                 loadJSON(urlJson, function(response) {
                     //Aplico filtro sobre el json
                     arrayLibros = JSON.parse(response);
-                    var fIsbn = template.content.querySelector("#isbn").text;
-                    var fTitulo = template.content.querySelector("#titulo");
-                    var fAutor = template.content.querySelector("#autor");
-
-                    console.log("fIsbn:" + fIsbn);
                     var filterLibros = {};
-                    var resultFiltro = _.filter(arrayLibros.books, {
-                        'isbn': fIsbn
-                    });
+                    var fIsbn = root.querySelector("#isbn").value;
+                    if (fIsbn!=""){
+                      filterLibros.isbn = fIsbn;
+                    }
+                    var fTitulo = root.querySelector("#titulo").value;
+                    if (fTitulo!=""){
+                      filterLibros.titulo = fTitulo;
+                    }
+                    var fAutor = root.querySelector("#autor").value;
+                    if (fAutor!=""){
+                      filterLibros.autor = fAutor;
+                    }
+
+                    var resultFiltro = _.filter(arrayLibros.books, filterLibros);
                     var evento = new CustomEvent("getLibros", {
                         detail: {
                             arrayLibros: resultFiltro
@@ -110,15 +99,6 @@
 
             });
         };
-
-
-        rociBusquedaPrototype.attributeChangedCallback = function(attrName, oldVal, newVal) {
-            console.log("attributeChangedCallback");
-        }
-
-        rociBusquedaPrototype.attachedCallback = function(attrName, oldVal, newVal) {
-            console.log("attachedCallback");
-        }
 
         // Registro el nuevo componente.
         var rociBusqueda = document.registerElement('roci-busqueda', {
