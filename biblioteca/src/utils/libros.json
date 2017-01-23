@@ -3,62 +3,74 @@
       {
          "isbn": "00001",
          "titulo": "El laberinto de los espiritus",
-         "autor": "Carlos Ruiz Zafon"
+         "autor": "Carlos Ruiz Zafon",
+         "imagen": "https://goo.gl/images/XRvSZd"
       },
       {
          "isbn": "00002",
          "titulo": "Patria",
-         "autor": "Fernando Aramburu"
+         "autor": "Fernando Aramburu",
+         "imagen": "https://goo.gl/images/XRvSZd"
       },
       {
          "isbn": "00003",
          "titulo": "La sombra del viento",
-         "autor": "Carlos Ruiz Zafon"
+         "autor": "Carlos Ruiz Zafon",
+         "imagen": "https://goo.gl/images/XRvSZd"
       },
       {
          "isbn": "00004",
          "titulo": "El guardian invisible",
-         "autor": "Dolores Redondo"
+         "autor": "Dolores Redondo",
+         "imagen": "https://goo.gl/images/XRvSZd"
       },
       {
          "isbn": "00005",
          "titulo": "La templanza",
-         "autor": "Maria Dueñas"
+         "autor": "Maria Dueñas",
+         "imagen": "https://goo.gl/images/XRvSZd"
       },
       {
          "isbn": "00006",
          "titulo": "Delfines",
-         "autor": "Alberto Vázquez-Figueroa"
+         "autor": "Alberto Vázquez-Figueroa",
+         "imagen": "https://goo.gl/images/XRvSZd"
       },
       {
          "isbn": "00007",
          "titulo": "El mar en llamas",
-         "autor": "Alberto Vázquez-Figueroa"
+         "autor": "Alberto Vázquez-Figueroa",
+         "imagen": "https://goo.gl/images/XRvSZd"
       },
       {
          "isbn": "00008",
          "titulo": "Todo bajo el cielo",
-         "autor": "Matilde Asensi"
+         "autor": "Matilde Asensi",
+         "imagen": "https://goo.gl/images/XRvSZd"
       },
       {
          "isbn": "00009",
          "titulo": "Lo que el viento se llevo",
-         "autor": "Margaret Mitchell"
+         "autor": "Margaret Mitchell",
+         "imagen": "https://goo.gl/images/XRvSZd"
       },
       {
          "isbn": "00010",
          "titulo": "El código Da Vinci",
-         "autor": "Dan Brown"
+         "autor": "Dan Brown",
+         "imagen": "https://goo.gl/images/XRvSZd"
       },
       {
          "isbn": "00011",
          "titulo": "El alquimista",
-         "autor": "Paulo Coelho"
+         "autor": "Paulo Coelho",
+         "imagen": "https://goo.gl/images/XRvSZd"
       },
       {
          "isbn": "00012",
          "titulo": "Crepúsculo",
-         "autor": "Stephenie Meyer"
+         "autor": "Stephenie Meyer",
+         "imagen": "https://goo.gl/images/XRvSZd"
       }
 
 
