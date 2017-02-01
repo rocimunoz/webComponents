@@ -4,7 +4,7 @@
     <template id="templateLista">
 
       <article>
-          <roci-libro data-isbn="" data-titulo="" data-autor=""></roci-libro>
+          <roci-libro data-isbn="" data-titulo="" data-autor="" data-img=""></roci-libro>
       </article>
       <hr>
   </template>
@@ -39,6 +39,7 @@
                   rociLibro.setAttribute("data-isbn", arrayLibros[i].isbn);
                   rociLibro.setAttribute("data-titulo", arrayLibros[i].titulo);
                   rociLibro.setAttribute("data-autor", arrayLibros[i].autor);
+                  rociLibro.setAttribute("data-img", arrayLibros[i].imagen);
                   var clone = componentDoc.importNode(rociLibro, true);
 
                   root.appendChild(clone);

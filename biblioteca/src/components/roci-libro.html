@@ -1,50 +1,64 @@
 <html>
 
-<body>
-  <template id="templateLibro">
-  <style type="text/css">
-  @import './bower_components/bootstrap/dist/css/bootstrap.min.css';
-  </style>
-  <div class="container">
-      <div class="list-group">
-          <div class="list-group-item"><b>ISBN:</b> <span id="isbn"></span></div>
-          <div class="list-group-item"><b>Titulo: </b><span id="titulo"></span></div>
-          <div class="list-group-item"><b>Autor: </b><span id="autor"></span></div>
+    <body>
+        <template id="templateLibro">
+            <style type="text/css">
+                @import './bower_components/bootstrap/dist/css/bootstrap.min.css';
+            </style>
+            <div class="container">
+                <div class="list-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="list-group-item">
+                                <b>ISBN:</b>
+                                <span id="isbn"></span>
+                            </div>
+                            <div class="list-group-item">
+                                <b>Titulo:
+                                </b>
+                                <span id="titulo"></span>
+                            </div>
+                            <div class="list-group-item">
+                                <b>Autor:
+                                </b>
+                                <span id="autor"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="list-group-item"><img id="thumbnail" src="" width="75px" height="100px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
 
-      </div>
-  </div>
-  </template>
+        <script>
+            var mainDoc = document.currentScript.ownerDocument;
 
+            // Create a new object based of the HTMLElement prototype
+            var rociLibroPrototype = Object.create(HTMLElement.prototype);
 
-    <script>
-    var mainDoc = document.currentScript.ownerDocument;
-
-        // Create a new object based of the HTMLElement prototype
-        var rociLibroPrototype = Object.create(HTMLElement.prototype);
-
-        // Set up the element.
-        rociLibroPrototype.createdCallback = function() {
-            var root = this.createShadowRoot();
-            var template = mainDoc.querySelector('#templateLibro');
-            var nodeIsbn = template.content.querySelector("#isbn");
-            nodeIsbn.textContent =  this.getAttribute("data-isbn");
-            var nodeTitulo = template.content.querySelector("#titulo");
-            nodeTitulo.textContent =  this.getAttribute("data-titulo");
-            var nodeAutor = template.content.querySelector("#autor");
-            nodeAutor.textContent =  this.getAttribute("data-autor");
+            // Set up the element.
+            rociLibroPrototype.createdCallback = function() {
+                var root = this.createShadowRoot();
+                var template = mainDoc.querySelector('#templateLibro');
+                var nodeIsbn = template.content.querySelector("#isbn");
+                nodeIsbn.textContent = this.getAttribute("data-isbn");
+                var nodeTitulo = template.content.querySelector("#titulo");
+                nodeTitulo.textContent = this.getAttribute("data-titulo");
+                var nodeAutor = template.content.querySelector("#autor");
+                nodeAutor.textContent = this.getAttribute("data-autor");
+                var nodeImagen = template.content.querySelector("#thumbnail");
+                nodeImagen.src = this.getAttribute("data-img");
 
                 var clone = document.importNode(template.content, true);
                 root.appendChild(clone);
 
+            };
 
-
-        };
-
-        // Register the new element.
-        var rociLibro = document.registerElement('roci-libro', {
-            prototype: rociLibroPrototype
-        });
-    </script>
-</body>
+            // Register the new element.
+            var rociLibro = document.registerElement('roci-libro', {prototype: rociLibroPrototype});
+        </script>
+    </body>
 
 </html>
