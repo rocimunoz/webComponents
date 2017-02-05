@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/serif.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<section>
+					<h2><font color="orange"><b>WebComponents</b></font></h2>
+					<h3>El futuro de la web</h3>
+					<p>
+						<small> Rocio Muñoz</a> / <a href="http://twitter.com/hakimel">@roci_munoz</a></small>
+
+					</p>
+				</section>
+				<section>
+						<div>
+								<div class="flex-container">
+
+										<p>Rocio Muñoz </p>
+										<img src="img/perfil.png">
+										<div class="flex-children"><img src="img/gmail.png"/><small>rocimunoz@gmail.com</small></div>
+										<div class="flex-children"><img src="img/twitter.png"/><small>@roci_munoz</small></div>
+										<div class="flex-children"><img src="img/linkedin.png"/><small>xxxx</small></div>
+										<div class="flex-children"><img src="img/git.png"/><small>www.github.com/rocimunoz</small></div>
+								</div>
+								<div>
+
+								</div>
+								<div>
+
+								</div>
+						</div>
+				</section>
+				</section>
+
+				<section>
+					<h2>Indice</h2>
+					<p>
+						<ul>
+							<li>1.Situacion de la web</li>
+							<li>2.Evolucion Webcomponents</li>
+							<li>3.Que son los webcomponents</li>
+							<li>4.Demo</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<section><h2>1. Situacion de la web</h2></section>
+				<section data-background="img/goldenaxe.jpg" data-background-size="1000px" data-background-image="http://example.com/image.png" data-background-position="center">
+
+					        <h3 class="fragment highlight-yellow">No tengo herramientas para solucionar problemas</h3>
+				</section>
+				<section>
+					        <h2>Problemas de encapsulamiento</h2>
+
+									<p>Iframes</p>
+									<p>!Important</p>
+									<img src="img/important.jpg">
+				</section>
+				<section>
+					        <h2>Problemas de encapsulamiento</h2>
+
+									<p>Iframes</p>
+									<p>!Important</p>
+									<img src="img/important.jpg">
+				</section>
+				<section>
+					        <h2>Problemas de modularidad</h2>
+									<p>Modularidad: División de una aplicación en partes mas pequeñas, "modulos"</p>
+									<p>No podemos crer módulos Html</p>
+				</section>
+				<section>
+					  <h2>Problemas de extensibilidad</h2>
+						<p>Elementos básicos: div, span, p, table, form, h1 ... </p>
+						<p>¿Y si necesito elementos nuevos?</p>
+
+				</section>
+
+				<section>
+					        <h2>Problemas de reusabilidad</h2>
+									<p>No podemos reutilizar código Html</p>
+									<p>Hay que usar frameworks javascript (mustache, underscore, handlebarjs, jade ..)</p>
+
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>2. Evolución WebComponents</h2>
+				</section>
+				<section>
+					<h3><font color="orange">HTML Components</font></h3>
+					<p>En <b>1998</b>, Internet Explorer crea el concepto de Html Components</p>
+					<p>Ficheros .htc con métodos y propiedades</p>
+					<img src="img/explorer.jpg">
+				</section>
+				<section>
+						<h3><font color="orange">XLB</font></h3>
+						<p>En <b>2001</b>, Mozilla lanza el concepto de XLB</p>
+						<p>En <b>2007</b>, lanzan XLB 2</p>
+						<img src="img/firefox.jpg">
+				</section>
+				<section>
+					<h3><font color="orange">WebComponents</font></h3>
+					<p>En <b>2011</b>, Alex Russell nombra en Frontiers Conference el concepto de Webcomponent</p>
+					<img src="img/frontiers.jpg">
+				</section>
+				<section>
+					<h3><font color="orange">Polymer</font></h3>
+					<p>En <b>2013</b>, aparece Polymer como framework de ayuda en la creacion de componentes</p>
+					<img src="img/polymer-logo.png">
+				</section>
+				<section>
+					<h3><font color="orange">W3C se pone a trabajar</font></h3>
+					<p>En <b>2014</b>, aprueban los templates como estandar</p>
+					<p>En <b>2016</b>, comienzan a trabajar en el resto de estandares que forman WebComponents</p>
+				</section>
+				<section>
+					<h3><font color="orange">Resumen Evolución</font></h3>
+					<img src="img/evolucion.png">
+				</section>
+
+
+			</section>
+				<section>
+						<section >
+							<h2>3. Qué son los webcomponents</h2>
+						</section>
+						<section >
+							<p>Conjunto de estandares que nos permitirán enriquecer la web</p>
+							<ul>
+								<li><b>Shadow DOM</b> : (encapsulamiento)</li>
+								<li><b>Html Imports</b>  : (modularidad)</li>
+								<li><b>Custom Elements</b> : (extensibilidad)</li>
+								<li><b>Templates</b> : (reusabilidad)</li>
+							</ul>
+							<img src="img/specs.png">
+						</section>
+						<section >
+							<p>No están soportados completamente en todos los navegadores</p>
+							<img src="img/fry.gif">
+							<span class="fragment"><p>Solución:  Polyfills</p></span>
+
+						</section>
+						<section >
+							<h3>Polyfills</h3>
+							<p>Trozo de código o plugin que añade nuevas funcionalidades a navegadores que aún no tienen dicha funcionalidad</p>
+							<p>webcomponents.js</p>
+						</section>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
