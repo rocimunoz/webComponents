@@ -7,6 +7,10 @@
   padding:20px
 }*/
 
+.reveal section img{
+  border: 0px;
+}
+
 .highlight-yellow{
   background-color:yellow
 }
