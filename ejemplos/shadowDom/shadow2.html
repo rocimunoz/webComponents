@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Ejemplo aplicando estilos desde dentro del shadowDom con tag style
+-->
+<head>
+    <title>Title of the document</title>
+</head>
+
+<body>
+
+    <h3>Prueba ShadowDom aplicando estilos con tag style</h3>
+    <div id="host">
+        <span>Texto del documento</span>
+    </div>
+
+    <script>
+        var shadowHost = document.querySelector('div');
+        var shadowRoot = shadowHost.createShadowRoot();
+        shadowRoot.innerHTML = '<style>span{ color: red; }</style>' +
+                 '<span>Texto del ShadowDOM</span>' + "<content></content>";;
+    </script>
+
+</body>
+
+</html>

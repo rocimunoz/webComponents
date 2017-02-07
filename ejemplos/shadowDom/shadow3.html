@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Ejemplo aplicando estilos desde dentro del shadowDom con :host
+:host nos permite añadir estilos al ShadowHost
+-->
+<head>
+    <title>Title of the document</title>
+</head>
+
+<body>
+
+    <h3>Prueba ShadowDom aplicando estilos con :host</h3>
+    <span>Texto sin shadowRoot</span>
+    <p>
+    <div id="host">
+        <span>Texto al que le creo un shadowDom</span>
+    </div>
+  </p>
+    <script>
+        var shadowHost = document.querySelector('div');
+        var shadowRoot = shadowHost.createShadowRoot();
+        shadowRoot.innerHTML = '<style> :host { color:red } </style>'+
+    '<span>Texto del shadowDom</span><content></content>';
+    </script>
+
+</body>
+
+</html>

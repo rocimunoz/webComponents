@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Ejemplo de un acceso desde fuera del ShadowDom para aplicarle estilos
+::shadow nos permite acceder desde fuera del arbol shadow hacia dentro para aplicarle estilos
+-->
+<head>
+    <title>Title of the document</title>
+    <style>
+        #host::shadow span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>Prueba ShadowDom aplicando estilos desde fuera con ::shadow</h3>
+    <div id="host">
+        <span>Texto del documento</span>
+    </div>
+
+    <script>
+        var shadowHost = document.querySelector('div');
+        var shadowRoot = shadowHost.createShadowRoot();
+        shadowRoot.innerHTML = "<span>Texto del shadowDom</span>" +
+            "<content></content>";
+    </script>
+
+</body>
+
+</html>

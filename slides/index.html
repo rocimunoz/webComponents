@@ -206,16 +206,36 @@
 							<p><strong>Shadow Root</strong>: Nodo raiz del shadowDom</p>
 						</section>
 						<section >
-							<p><strong>Diferencias entre shadowDom v0 y ShadowDom v1</strong></p>
-							<p>https://hayato.io/2016/shadowdomv1/</p>
+							<p>Ejemplo ShadowDom en tag video</>
+								<img src="img/shadowDomCode.png">
 						</section>
 						<section >
+							<p><strong>!!Cuidado!! Hay 2 versiones de ShadowDom</strong></p>
+							<p>Shadow Dom v0: Compatible desde Chrome 25</p>
+							<p>Shadow Dom v1: Compatible desde Chrome 53</p>
+							<p><strong>Diferencias entre shadowDom v0 y ShadowDom v1</strong></p>
+							<p><a href="https://hayato.io/2016/shadowdomv1/">Link con las diferencias</a></p>
+						</section>
+						<section >
+							<h3>Shadow Dom v0</h3>
 							<p><strong>¿Cómo se crea un árbol con shadowDom v0?</strong></p>
 							<p>document.querySelector('#selector').<font color="red">createShadowRoot();</font></p>
+
 						</section>
 						<section >
+							<h3>Shadow Dom v0</h3>
+							<p><strong>¿Como se añaden estilos a un shadowDom?</strong></p>
+							<p>Desde fuera: "::shadow"</p>
+							<p>Desde dentro: ":host"</p>
+
+						</section>
+						<section >
+							<h3>Shadow Dom v0</h3>
 							<p><strong>Eventos shadowDom</strong></p>
 							<p>No todos los eventos se disparan fuera de un componente</p>
+							<p>Estos eventos no cruzan un shadowDom</p>
+							<p><font color="red"><i>abort, error, select, change, load, reset, resize, scroll, selectstart</font></i></p>
+
 						</section>
 
 				</section>
