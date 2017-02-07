@@ -9,7 +9,6 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/serif.css">
 		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -23,6 +22,7 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
 	</head>
 	<body>
 		<div class="reveal">
@@ -77,18 +77,10 @@
 				</section>
 				<section>
 					        <h3>Problemas de encapsulamiento</h3>
-
-									<p>Iframes</p>
-									<p>!Important</p>
+									<p>Usamos iframes o !important para evitar problemas</p>
 									<img src="img/important.jpg">
 				</section>
-				<section>
-					        <h3>Problemas de encapsulamiento</h3>
 
-									<p>Iframes</p>
-									<p>!Important</p>
-									<img src="img/important.jpg">
-				</section>
 				<section>
 					        <h3>Problemas de modularidad</h3>
 									<p>Modularidad: División de una aplicación en partes mas pequeñas, "modulos"</p>
@@ -195,7 +187,6 @@
 				<section>
 						<section >
 							<h2><font color="#CC0000">3.1 Shadow DOM (encapsulación)</font></h2>
-
 						</section>
 						<section >
 							<p>ShadowDom proporciona un arbol Dom aislado ("sombra") dentro de un componente</p>
@@ -242,17 +233,30 @@
 				<section>
 						<section >
 							<h2><font color="#CC0000">3.2 Custom Elements (extensibilidad)</font></h2>
-
 						</section>
 						<section >
 							<p>Permite al usuario definir nuevas etiquetas Html</p>
 							<p>Nomenclatura: Separado por un guion</p>
-							<p>Es necesario registrar el nuevo elemento</p>
+							<p>Por ejemplo: paleta-colores, grafico-3d, grid-alumnos</p>
 
 						</section>
 						<section >
-							<p><strong>¿Cómo se registra un elemento?</strong></p>
+							<h3>Registro </h3>
+							<p>Para poder usarlo, primero hay que registrarlo</p>
 							<p>document.<font color="red">registerElement('mi-elemento')</font></p>
+
+							<pre><code>
+	var rociBusqueda = document.registerElement('mi-elemento', {
+	   prototype: miElementoPrototype
+	});
+						</code></pre>
+						</section>
+						<section >
+							<h3>Ciclo de vida Custom Elements</h3>
+							<p>createdCallback</p>
+							<p>attachedCallback</p>
+							<p>detachedCallback</p>
+							<p>attributeChangedCallback(attrName, oldVal, newVal)</p>
 
 						</section>
 
@@ -261,7 +265,6 @@
 				<section>
 						<section >
 							<h2><font color="#CC0000">3.3 Html Imports (modularidad)</font></h2>
-
 						</section>
 						<section >
 							imports dom bla bla
@@ -309,13 +312,14 @@
 			Reveal.initialize({
 				history: true,
 				//Progress Bar
-				allottedTime: 3 * 60 * 1000, // 3 minutes
+				allottedTime: 30 * 60 * 1000, // 3 minutes
   			// - (optional) height of page/time progress bar
-  			progressBarHeight: 3,
+  			progressBarHeight: 30,
   			// - (optional) bar color
   			barColor: 'rgb(200,0,0)',
   			// - (optional) bar color when timer is paused
   			pausedBarColor: 'rgba(200,0,0,.6)',
+
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
