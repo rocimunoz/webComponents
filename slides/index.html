@@ -246,18 +246,32 @@
 							<p>document.<font color="red">registerElement('mi-elemento')</font></p>
 
 							<pre><code>
-	var rociBusqueda = document.registerElement('mi-elemento', {
-	   prototype: miElementoPrototype
-	});
+ var rociBusqueda = document.registerElement('mi-elemento', {
+    prototype: miElementoPrototype
+  });
 						</code></pre>
 						</section>
 						<section >
 							<h3>Ciclo de vida Custom Elements</h3>
-							<p>createdCallback</p>
-							<p>attachedCallback</p>
-							<p>detachedCallback</p>
-							<p>attributeChangedCallback(attrName, oldVal, newVal)</p>
+							<p><b>createdCallback</b>:Creacion del componente</p>
+							<p><b>attachedCallback</b>: Añado componente a document</p>
+							<p><b>detachedCallback</b>: Elimino componente de document</p>
+							<p><b>attributeChangedCallback</b>: Cambios en atributos</p>
 
+						</section>
+
+						<section >
+							<h3>Ejemplo</h3>
+							<pre><code>
+   miElementoPrototype.createdCallback = function() {
+
+      //Comportamiento del componente
+   }
+   var miElemento = document.registerElement('mi-elemento', {
+		 prototype: miElementoPrototype
+	});
+
+</pre></code>
 						</section>
 
 				</section>
@@ -267,7 +281,15 @@
 							<h2><font color="#CC0000">3.3 Html Imports (modularidad)</font></h2>
 						</section>
 						<section >
-							imports dom bla bla
+							<p>Js: <i> Tag script type=javascript</i> </p>
+							<p>Css: <i> Tag link rel="stylesheet </i> </p>
+							<p>¿Qué pasa con el Html? ¿Iframes? ¿Ajax?</p>
+							<p class="fragment"><b>!!Noooo!! HTML IMPORTS</b></P>
+						</section>
+
+						<section >
+							<p>¿Cómo declaro un Import?</p>
+							
 						</section>
 
 				</section>
