@@ -281,15 +281,24 @@
 							<h2><font color="#CC0000">3.3 Html Imports (modularidad)</font></h2>
 						</section>
 						<section >
-							<p>Js: <i> Tag script type=javascript</i> </p>
-							<p>Css: <i> Tag link rel="stylesheet </i> </p>
+
+							<p>Js: <i> script type=javascript</i> </p>
+							<p>Css: <i> link rel="stylesheet </i> </p>
 							<p>¿Qué pasa con el Html? ¿Iframes? ¿Ajax?</p>
 							<p class="fragment"><b>!!Noooo!! HTML IMPORTS</b></P>
 						</section>
 
 						<section >
-							<p>¿Cómo declaro un Import?</p>
-							
+							<h3>Declarando un Html import</h3>
+							<p><b>Import relativo al proyecto</b></p>
+							link <font color="red">rel="import"</font> href="src/fichero.html"
+							<p><b>Import con Url absoluta</b></p>
+							link <font color="red">rel="import"</font> href="http://fichero.html"
+							!!!Cuidado!!! Problemas de CORS
+						</section>
+						<section >
+							<h3>¿Y aqui que pasará?</h3>
+						  <img src="img/import.png">
 						</section>
 
 				</section>
@@ -299,8 +308,38 @@
 
 						</section>
 						<section >
-							templates dom bla bla
+							<h3>Qué es un template</h3>
+							<p>Fragmentos de código que podemos instanciar en el DOM en cualquier momento</p>
+							<p>No se renderiza en el DOM hasta que se active</p>
 						</section>
+						<section >
+							<h3>Declarando un template</h3>
+							<pre><code>
+	 <template id="mytemplate">
+		 <img src="" alt="">
+		 <div></div>
+	 </template>
+
+</pre></code>
+						</section>
+
+						<section >
+							<h3>Activando un template</h3>
+							<span class="highlight-yellow">importNode</span>
+							<pre><code>
+	 var t = document.querySelector("#mytemplate");
+	 t.content.querySelector("img").src="logo.png";
+
+	 var clone = document.importNode(t.content, true);
+	 document.appendChild(clone);
+
+</pre></code>
+						</section>
+
+				</section>
+
+				<section data-background="img/wallpaper_mario2.jpg" >
+					<h3 class="fragment highlight-yellow">Ahora si ...</h3>
 
 				</section>
 
