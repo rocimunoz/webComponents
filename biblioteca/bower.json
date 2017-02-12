@@ -9,7 +9,7 @@
   "keywords": [
     "storage"
   ],
-  "homepage": "https://github.com/rocimunoz/WebStorage",
+  "homepage": "https://github.com/rocimunoz/webcomponents",
   "private": true,
   "ignore": [
     "**/.*",
