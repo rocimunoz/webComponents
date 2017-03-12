@@ -7,15 +7,21 @@ Este proyecto contiene
 
 ## Instalacion
 ### Dependencias npm
-``` npm install 
+```
+npm install
 ```
 ### Dependencias bower
-``` bower install 
+```
+bower install
 ```
 
-### Servidor express
-``` gulp
+### Arrancar Servidor express
+``` 
+gulp
 ```
+
+El proyecto arrancará en el puerto 4000
+https://localhost:4000
 
 
 
