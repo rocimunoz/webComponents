@@ -1,3 +1,7 @@
-[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/rocimunoz/webcomponents)
+# WebComponents
+Charla realizada en la Universidad de Cantabria, en las jornadas UCTechPro
 
-# webComponents
+Este proyecto contiene
+- slides usadas en la charla
+- proyecto Biblioteca
+
