@@ -21,8 +21,14 @@ gulp
 ```
 
 El proyecto arrancará en el puerto 4000
+
 https://localhost:4000
 
+
+
+<p align="center">
+  <img src="https://github.com/rocimunoz/webcomponents/blob/master/slides/img/demo.png"/>
+</p>
 
 
 
