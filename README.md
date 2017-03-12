@@ -5,3 +5,22 @@ Este proyecto contiene
 - slides usadas en la charla
 - proyecto Biblioteca
 
+## Instalacion
+### Dependencias npm
+``` npm install 
+```
+### Dependencias bower
+``` bower install 
+```
+
+### Servidor express
+``` gulp
+```
+
+
+
+
+
+
+
+
